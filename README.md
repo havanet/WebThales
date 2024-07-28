@@ -1,4 +1,5 @@
 # WebThales
+this project uses  .Net 8.0
 Install: 
-  NewtonJson   
-  Microsoft.AspNetCore.Session
+NewtonJson   
+Microsoft.AspNetCore.Session
