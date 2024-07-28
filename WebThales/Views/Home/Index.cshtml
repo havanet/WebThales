@@ -1,0 +1,51 @@
+﻿@using Data.Model
+@model List<Employee>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Information</h1>
+
+        <form method="post" action="/Home/Index">
+            <div class="form-group">
+                <label for="employeeSearch">Search Employee by Id</label>
+                <input type="number" class="form-control" id="employeeSearch" name="employeeSearch" placeholder="Enter employee Id">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Monthly Salary</th>
+                    <th>Annual Salary</th>
+                    <th>Age</th>
+                    <th>Profile Image</th>
+                </tr>
+            </thead>
+             <tbody>
+                @foreach (var employee in Model)
+                {
+                    <tr>
+                        <td>@employee.Id</td>
+                        <td>@employee.EmployeeName</td>
+                        <td>@employee.EmployeeSalary.ToString("C")</td>
+                        <td>@employee.Annualsalary.ToString("C")</td>
+                        <td>@employee.EmployeeAge</td>
+                        <td>
+                            <img src="@employee.ProfileImage" alt="Profile Image" width="50" height="50" />
+                        </td>
+                    </tr>
+                }
+            </tbody> 
+        </table>
+    </div>
+</body>
+</html>
